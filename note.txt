@@ -55,4 +55,7 @@ git log -1
     -> 100644 7529c7d81e6e4cc5edc9ba61c4447c2b1e36da28 0    note.txt
     -> 100644 d9a1be822fc7705704d24e268e936aa9742d13af 0    slides.pdf
 
-git stash -> last untracked or modified file is remove 
+git stash -> last untracked or modified file is remove
+
+* RENAME FOLDER NAME *
+git mv -f oldfolder newfolder -> chnage name
