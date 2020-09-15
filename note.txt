@@ -1,2 +1,29 @@
 blob — A blob object is used for storing the contents of a single file.
 tree — A tree object contains references to other blobs or subtrees.
+
+tree .git/objects -> shwo object tree
+git log -1
+
+ git --no-pager log --oneline -> all pushed file commit
+ git branch a_new_branch
+
+    -> tree .git/refs
+    .git/refs
+    ├── heads
+    │   ├── a_new_branch
+    │   └── master
+    ├── remotes
+    │   └── origin
+    │       ├── HEAD
+    │       └── master
+    └── tags
+
+    4 directories, 4 files
+
+    git ls-files -s -> 
+    100644 67045665db202cf951f839a5f3e73efdcfd45021 0    .gitignore
+    100644 8ab686eafeb1f44702738c8b0f24f2567c36da6d 0    hello.txt
+    100644 7529c7d81e6e4cc5edc9ba61c4447c2b1e36da28 0    note.txt
+    100644 d9a1be822fc7705704d24e268e936aa9742d13af 0    slides.pdf
+
+git stash -> last untracked or modified file is remove 
