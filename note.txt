@@ -1,0 +1,2 @@
+blob — A blob object is used for storing the contents of a single file.
+tree — A tree object contains references to other blobs or subtrees.
