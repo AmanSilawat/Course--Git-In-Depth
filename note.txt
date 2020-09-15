@@ -72,3 +72,15 @@ Switched to branch 'feature'
 
 ❯ cat .git/HEAD
 ref: refs/heads/feature
+
+
+
+
+*** AFTER PULL HOW TO GET PREVIES DATA ***
+git pull 
+git log --oneline
+git reset --keep HEAD@{1}
+
+
+*** AFTER MERGE HOW TO GET PREVIES DATA ***
+??????
