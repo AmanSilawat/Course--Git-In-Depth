@@ -59,3 +59,16 @@ git stash -> last untracked or modified file is remove
 
 * RENAME FOLDER NAME *
 git mv -f oldfolder newfolder -> chnage name
+
+
+****** GIT CHANGING HEAD *******
+❯ git checkout master
+
+❯ cat .git/HEAD
+ref: refs/heads/master
+
+❯ git checkout feature
+Switched to branch 'feature'
+
+❯ cat .git/HEAD
+ref: refs/heads/feature
