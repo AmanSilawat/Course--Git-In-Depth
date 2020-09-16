@@ -83,7 +83,10 @@ git reset --keep HEAD@{1}
 
 
 *** AFTER MERGE HOW TO GET PREVIES DATA ***
-??????
+(cmd) git merge feature 
+         OR
+(cmd) git merge new_feature --no-ff    #To retain the history of a merge commit, even if there are no
+changes to the base branch
 
 
 ** git log since **
