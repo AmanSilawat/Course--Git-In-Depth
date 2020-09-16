@@ -1,5 +1,33 @@
-blob — A blob object is used for storing the contents of a single file.
+what is git?
+    Git is a distributed version-control system for tracking changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. Its goals include speed, data integrity, and support for distributed, non-linear workflows.
+
+what is working area / working directory?
+    The working area is where files that are not handled by git. These files are also referred to as "untracked files." STAGING AREA is files that are going to be a part of the next commit, which lets git know what changes in the file are going to occur for the next commit. The repository contains all of a project's commits. After committing, your Staging Area will be empty.
+
+what is staging area?
+    The Staging Area is when git starts tracking and saving changes that occur in files. These saved changes reflect in the .git directory. That is about it when it comes to the Staging Area. after commit files goto staging area.
+
+******** Git Guide ********
+WORKING AREA -> STAGING AREA -> WORKING TREE
+
+
+
+
+what is THE KEY - SHA1?
+    The key is the hash of your data, like the unique id of what your content represent. You can then use the key to retrieve the content, like an id. To be precise, the key is a SHA1 of the data. SHA1 is a cryptographic hash function, which means that given the data, it will creates a 40-digit hexadecimal number (the ones you can see when you do git log). SHA1 function will guarantee same output for same input.
+
+(cmd)- World" | git hash-object --stdin (creating the hash content)
+557db03de997c86a4a028e1ebd3a1ceb225be238
+
+?blob — A blob object is used for storing the contents of a single file.
 tree — A tree object contains references to other blobs or subtrees.
+
+** commit **
+?parent commit
+
+(cmd) git log --oneline
+(cmd) tree .git/objects         (git tree diredtory)
+cat .git/HEAD -> (output)-ref: refs/heads/two
 
 tree .git/objects -> shwo object tree
 git log -1
@@ -10,7 +38,7 @@ git log -1
     -> tree .git/refs
     .git/refs
     ├── heads
-    │   ├── a_new_branch
+    │   ├── a_new_branchgit ls-files -s
     │   └── master
     ├── remotes
     │   └── origin
@@ -20,16 +48,83 @@ git log -1
 
     4 directories, 4 files
 
-    git ls-files -s -> 
-    100644 67045665db202cf951f839a5f3e73efdcfd45021 0    .gitignore
-    100644 8ab686eafeb1f44702738c8b0f24f2567c36da6d 0    hello.txt
-    100644 7529c7d81e6e4cc5edc9ba61c4447c2b1e36da28 0    note.txt
-    100644 d9a1be822fc7705704d24e268e936aa9742d13af 0    slides.pdf
 
+<<<<<<< HEAD
 git stash -> last untracked or modified file is remove 
+=======
+(cmd) git ls-files -s 
+    -> 100644 67045665db202cf951f839a5f3e73efdcfd45021 0    .gitignore
+    -> 100644 8ab686eafeb1f44702738c8b0f24f2567c36da6d 0    hello.txt
+    -> 100644 7529c7d81e6e4cc5edc9ba61c4447c2b1e36da28 0    note.txt
+    -> 100644 d9a1be822fc7705704d24e268e936aa9742d13af 0    slides.pdf
+
+git stash -> last untracked or modified file is remove
+
+* RENAME FOLDER NAME *
+git mv -f oldfolder newfolder -> chnage name
+
+
+****** GIT CHANGING HEAD *******
+❯ git checkout master
+
+❯ cat .git/HEAD
+ref: refs/heads/master
+
+❯ git checkout feature
+Switched to branch 'feature'
+
+❯ cat .git/HEAD
+ref: refs/heads/feature
+
+
+>>>>>>> three
 
 
 *** AFTER PULL HOW TO GET PREVIES DATA ***
 git pull 
 git log --oneline
+<<<<<<< HEAD
 git reset --keep HEAD@{1}
+=======
+git reset --keep HEAD@{1}
+
+
+*** AFTER MERGE HOW TO GET PREVIES DATA ***
+??????
+
+
+** git log since **
+git	log	--since="yesterday"
+
+** git log RENAMED FILE LIST **
+git log --diff-filter=R --stat
+
+**  **
+git log --diff-filter=R --stat
+
+
+from:https://mirrors.edge.kernel.org/pub/software/scm/git/docs/git-rev-parse.html
+Here is an illustration, by Jon Loeliger. Both commit nodes B and C are parents of commit node A. Parent commits are ordered left-to-right.
+G   H   I   J
+ \ /     \ /
+  D   E   F
+   \  |  / \
+    \ | /   |
+     \|/    |
+      B     C
+       \   /
+        \ /
+         A
+A =      = A^0
+B = A^   = A^1     = A~1
+C =      = A^2
+D = A^^  = A^1^1   = A~2
+E = B^2  = A^^2
+F = B^3  = A^^3
+G = A^^^ = A^1^1^1 = A~3
+H = D^2  = B^^2    = A^^^2  = A~2^2
+I = F^   = B^3^    = A^^3^
+J = F^2  = B^3^2   = A^^3^2
+
+
+>>>>>>> three
