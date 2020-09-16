@@ -120,3 +120,48 @@ I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
 
 
+**** how to get back deleted file ******
+
+(cmd) git log --name-status --oneline hello.template
+
+    -> d7e0f0c (HEAD -> five) push on branch five
+    -> ee0e0eb (origin/three, three) Revert "done revert commit"
+    -> M       hello.template
+    -> 91d99f6 check revet commit
+    -> M       hello.template
+    -> f758336 Renamed hello file
+    -> M       hello.template
+    -> eb1d58c Replacing greeting with some tokens for i18n
+    -> A       hello.template
+
+(cmd) git checkout eb1d58c^ -- hello.txt
+(cmd) cat hello.txt -> "hello world"
+
+
+
+
+
+**** FILE TRANFER ON HEAD ****
+git mv hello-file.txt hello-file2.txt
+git status
+    -> On branch five
+    -> Changes to be committed:
+    -> (use "git restore --staged <file>..." to unstage)
+    ->         renamed:    hello-file.txt -> hello-file2.txt
+
+git reset HEAD hello-file2.txt
+git status
+    -> On branch five
+    -> Changes to be committed:
+    -> (use "git restore --staged <file>..." to unstage)
+    ->         deleted:    hello-file.txt
+    -> 
+    -> Untracked files:
+    -> (use "git add <file>..." to include in what will be committed)
+    ->         hello-file2.txt
+
+
+
+*** WHO'S Delete THIS FILE ***
+git log --diff-filter=D --oneline -- hello-file.txt
+45e1890 (HEAD -> five) Delete the hello-file file
