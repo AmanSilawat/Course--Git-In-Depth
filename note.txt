@@ -180,3 +180,21 @@ git status
 *** WHO'S Delete THIS FILE ***
 git log --diff-filter=D --oneline -- hello-file.txt
 45e1890 (HEAD -> five) Delete the hello-file file
+
+
+
+
+*****  How to Use git blame  *******
+
+1. (cmd) tree -L 1 ->
+    -> ├── blob not working and -p full details not match.png
+    -> ├── GitWorkflow.png
+    -> ├── hello.txt
+    -> ├── new_test.txt
+    -> ├── note.txt
+    -> ├── simple_exc
+    -> └── slides.pdf
+    -> 
+    -> 1 directory, 6 files
+
+1. (cmd) git blame new_test.txt
